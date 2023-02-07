@@ -15,8 +15,8 @@
           null,
           1,
           1,
-          null,
           1,
+          null,
           6,
           6,
           6,
@@ -348,8 +348,16 @@
           1,
           null
         ]
+      },
+      "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/app/serializers/merchant_serializer.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1675794615
+    "timestamp": 1675796334
   }
 }
