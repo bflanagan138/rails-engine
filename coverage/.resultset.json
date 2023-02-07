@@ -1,12 +1,28 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/spec/models/merchant_spec.rb": {
+      "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/spec/requests/api/v1/merchants_request_spec.rb": {
         "lines": [
           1,
           null,
           1,
           1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          6,
+          6,
+          6,
+          6,
+          null,
+          null,
           null
         ]
       },
@@ -288,7 +304,7 @@
         "lines": [
           1,
           1,
-          4,
+          7,
           null,
           null
         ]
@@ -318,26 +334,11 @@
           null
         ]
       },
-      "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/spec/requests/api/v1/merchants_request_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
       "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
         "lines": [
           1,
           1,
-          null,
+          1,
           null,
           null
         ]
@@ -349,6 +350,6 @@
         ]
       }
     },
-    "timestamp": 1675794209
+    "timestamp": 1675794615
   }
 }
