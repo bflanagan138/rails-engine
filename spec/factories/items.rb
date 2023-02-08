@@ -3,6 +3,6 @@ FactoryBot.define do
     name { Faker::Nation.nationality }
     description { Faker::Nation.language }
     unit_price { Faker::Nation.capital_city }
-    # merchant_id { Faker::Nation.national_sport }
+    merchant
   end
 end

@@ -24,4 +24,43 @@ describe "items API" do
     end
   end
 
+  it 'returns a single merchant by its id' do
+    # merchant = create(:merchant).id
+    id = create(:item).id
+
+    get "/api/v1/items/#{id}"
+    item = JSON.parse(response.body, symbolize_names: true)
+    expect(response).to be_successful
+
+    expect(item[:data]).to have_key(:id)
+    expect(item[:data][:id].to_i).to be_an(Integer)
+    expect(item[:data][:attributes]).to have_key(:name)
+    expect(item[:data][:attributes][:name]).to be_a(String)
+    expect(item[:data][:attributes]).to have_key(:description)
+    expect(item[:data][:attributes][:description]).to be_a(String)
+    expect(item[:data][:attributes]).to have_key(:unit_price)
+    expect(item[:data][:attributes][:unit_price].to_f).to be_a(Float)
+  end
+
+  it "can create a new item" do
+    merchant = create(:merchant).id
+    item_params = ({
+                    name: 'Widget 1',
+                    description: 'It slices, it dices',
+                    unit_price: 1.99,
+                    merchant_id: merchant
+                  })
+    headers = {"CONTENT_TYPE" => "application/json"}
+
+    # We include this header to make sure that these params are passed as JSON rather than as plain text
+    post "/api/v1/items", headers: headers, params: JSON.generate(item: item_params)
+    # require 'pry'; binding.pry
+    created_item = Item.last
+
+    expect(response).to be_successful
+    expect(created_item.name).to eq(item_params[:name])
+    expect(created_item.description).to eq(item_params[:description])
+    expect(created_item.unit_price).to eq(item_params[:unit_price])
+    expect(created_item.merchant_id).to eq(item_params[:merchant_id])
+  end
 end
