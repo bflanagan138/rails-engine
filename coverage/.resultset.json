@@ -1,26 +1,22 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/spec/requests/api/v1/merchants_request_spec.rb": {
+      "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/spec/models/merchant_spec.rb": {
         "lines": [
           1,
           null,
           1,
           1,
-          1,
-          null,
-          1,
-          null,
-          1,
           null,
           1,
           1,
           1,
+          1,
           null,
-          6,
-          6,
-          6,
-          6,
+          1,
+          1,
+          null,
+          1,
           null,
           null,
           null
@@ -291,7 +287,7 @@
           null,
           null,
           1,
-          2,
+          1,
           null,
           null,
           null,
@@ -300,11 +296,23 @@
           null
         ]
       },
+      "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/spec/factories/items.rb": {
+        "lines": [
+          1,
+          1,
+          9,
+          9,
+          9,
+          1,
+          null,
+          null
+        ]
+      },
       "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/spec/factories/merchants.rb": {
         "lines": [
           1,
           1,
-          7,
+          3,
           null,
           null
         ]
@@ -315,6 +323,9 @@
           1,
           1,
           1,
+          1,
+          null,
+          1,
           null,
           null,
           null
@@ -322,6 +333,10 @@
       },
       "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/app/models/merchant.rb": {
         "lines": [
+          1,
+          1,
+          null,
+          1,
           1,
           null,
           null
@@ -334,30 +349,14 @@
           null
         ]
       },
-      "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/app/controllers/api/v1/merchants_controller.rb": {
+      "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/app/models/item.rb": {
         "lines": [
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "/Users/bryanflanagan/turing_work/3mod/projects/rails-engine/app/serializers/merchant_serializer.rb": {
-        "lines": [
-          1,
           1,
           1,
           null
         ]
       }
     },
-    "timestamp": 1675796334
+    "timestamp": 1675891114
   }
 }
