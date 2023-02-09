@@ -78,4 +78,21 @@ describe "items API" do
     expect(item.name).to_not eq(previous_name)
     expect(item.name).to eq("Thunder Widget")
   end
+
+  it "can delete an existing item" do
+    # id = create(:item).id
+    # previous_name = Item.last.name
+    # item_params = { name: "Thunder Widget" }
+    # headers = {"CONTENT_TYPE" => "application/json"}
+    item = create(:item)
+    # We include this header to make sure that these params are passed as JSON rather than as plain text
+    expect(Item.count).to eq(1)
+    # require 'pry'; binding.pry
+    delete "/api/v1/items/#{item.id}"
+    # item = Item.find_by(id: id)
+  # require 'pry'; binding.pry
+    expect(response).to be_successful
+    expect(Item.count).to eq(0)
+    # expect(item.name).to eq("Thunder Widget")
+  end
 end

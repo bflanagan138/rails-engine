@@ -13,10 +13,10 @@ describe "merchant items" do
     merchant1 = JSON.parse(response.body, symbolize_names: true)
 
     expect(response).to be_successful
-    # require 'pry'; binding.pry
-    expect(merchant1.count).to eq (6)
-    expect(merchant1[0][:merchant_id]).to eq (items1.first.merchant_id)
-    expect(merchant1[0][:merchant_id]).to_not eq (items2.first.merchant_id)
+  
+    expect(merchant1[:data].count).to eq (6)
+    expect(merchant1[:data][0][:attributes][:merchant_id]).to eq (items1.first.merchant_id)
+    expect(merchant1[:data][0][:attributes][:merchant_id]).to_not eq (items2.first.merchant_id)
 
   end
 end
