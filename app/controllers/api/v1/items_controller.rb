@@ -7,7 +7,7 @@ class Api::V1::ItemsController < ApplicationController
     begin
       Item.exists?
       render json: ItemSerializer.new(Item.find(params[:id]))
-    rescue => error
+    rescue ActiveRecord::RecordNotFound => error
       render json: ItemErrorSerializer.error_json(error, 404), status: 404
     end
   end
@@ -23,12 +23,13 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    Item.update(item_params)
-    if item.save
+    begin
+      item = Item.find(params[:id])
+      Item.update(item_params)
+      item.save
       render json: ItemSerializer.new(item)
-    else
-      render json: { errors: "Item not updated" }, status: 404
+    rescue => error
+      render json: ItemErrorSerializer.missing_item_error_json(error, 404), status: 404
     end
   end
 

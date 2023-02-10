@@ -125,6 +125,21 @@ describe "items API" do
     expect(created_item.merchant_id).to eq(item_params[:merchant_id])
   end
 
+  it "returns a 404 error if it cannot update an existing item" do
+    id = create(:item).id
+    item_params = { name: 100 }
+    headers = {"CONTENT_TYPE" => "application/json"}
+  
+    patch "/api/v1/items/#{id}"
+    expect(response).to_not be_successful
+    expect(response.status).to eq(404)
+    data = JSON.parse(response.body, symbolize_names: true)
+    expect(data[:message]).to eq ("your request could not be completed due to a #{response.status} error")
+    expect(data[:errors]).to be_a(Array)
+    expect(data[:errors].first[:status]).to eq("404")
+    expect(data[:errors].first[:title]).to eq ("param is missing or the value is empty: item")
+  end
+
   it "can update an existing item" do
     id = create(:item).id
     previous_name = Item.last.name
