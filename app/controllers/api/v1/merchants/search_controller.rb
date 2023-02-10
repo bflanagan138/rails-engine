@@ -1,5 +1,5 @@
 class Api::V1::Merchants::SearchController < ApplicationController
-  def index 
+  def index
     search_merchants = []
     Merchant.all.each do |m|
       if m[:name].downcase.include?(params["name"].downcase)

@@ -10,8 +10,7 @@ describe "merchant find_all" do
     get "/api/v1/merchants/find_all", params: { name: 'Trampoline' }
     # require 'pry'; binding.pry
     merchant_data = JSON.parse(response.body, symbolize_names: true)
-    expect(response).to_not be_successful
-          
+    expect(response).to_not be_successful      
   end
 
   it 'returns all merchants matching a query' do
