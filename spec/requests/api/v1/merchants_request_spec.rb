@@ -49,11 +49,16 @@ describe "merchants API" do
     merchants = create_list(:merchant, 6)
 
     get "/api/v1/merchants/find_all"
-    merchant = JSON.parse(response.body, symbolize_names: true)
+    merchant_data = JSON.parse(response.body, symbolize_names: true)
+
     expect(response).to be_successful
-    expect(merchant[:data]).to have_key(:id)
-    expect(merchant[:data][:id].to_i).to be_an(Integer)
-    expect(merchant[:data][:attributes]).to have_key(:name)
-    expect(merchant[:data][:attributes][:name]).to be_a(String)
+    # require 'pry'; binding.pry
+    expect(merchant_data[:data].count).to eq(6)
+    merchant_data[:data].each do |merchant|
+      expect(merchant).to have_key(:id)
+      expect(merchant[:id].to_i).to be_an(Integer)
+      expect(merchant[:attributes]).to have_key(:name)
+      expect(merchant[:attributes][:name]).to be_a(String)
+    end
   end
 end
