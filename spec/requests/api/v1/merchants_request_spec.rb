@@ -44,4 +44,16 @@ describe "merchants API" do
     expect(data[:errors].first[:status]).to eq("404")
     expect(data[:errors].first[:title]).to eq ("Couldn't find Merchant with 'id'=#{id + 1}")
   end
+
+  it 'returns all merchants' do
+    merchants = create_list(:merchant, 6)
+
+    get "/api/v1/merchants/find_all"
+    merchant = JSON.parse(response.body, symbolize_names: true)
+    expect(response).to be_successful
+    expect(merchant[:data]).to have_key(:id)
+    expect(merchant[:data][:id].to_i).to be_an(Integer)
+    expect(merchant[:data][:attributes]).to have_key(:name)
+    expect(merchant[:data][:attributes][:name]).to be_a(String)
+  end
 end
